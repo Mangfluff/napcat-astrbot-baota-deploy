@@ -28,7 +28,7 @@
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/your-username/napcat-astrbot-baota-deploy.git
+git clone https://github.com/Mangfluff/napcat-astrbot-baota-deploy.git
 cd napcat-astrbot-baota-deploy
 
 # 2. 运行部署脚本（需 root 权限）
