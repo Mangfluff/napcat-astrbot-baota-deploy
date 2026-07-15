@@ -1,0 +1,52 @@
+{
+  "services": {
+    "napcat": {
+      "name": "NapCatQQ",
+      "description": "基于 NTQQ 的 OneBot 协议实现，QQ 机器人框架",
+      "enabled": true,
+      "versions": {
+        "original": {
+          "name": "官方原版",
+          "description": "NapNeko 官方发布的 NapCatQQ 版本",
+          "installer_url": "https://nclatest.znin.net/NapNeko/NapCat-Installer/main/script/install.sh",
+          "install_script": "install_napcat.sh"
+        },
+        "fix": {
+          "name": "修复版 (Fix)",
+          "description": "用户自定义修复版 NapCatQQ",
+          "repo_url": "https://github.com/your-username/napcat-fix",
+          "install_script": "install_napcat.sh"
+        }
+      },
+      "default_version": "original",
+      "install_dir": "/root/Napcat",
+      "webui_port": 6099,
+      "onebot_port": 3001,
+      "config_dir": "/root/Napcat/opt/QQ/config/napcat"
+    },
+    "astrbot": {
+      "name": "AstrBot",
+      "description": "支持多平台的 LLM 聊天机器人框架",
+      "enabled": true,
+      "install_methods": {
+        "source": "源码部署",
+        "docker": "Docker 部署"
+      },
+      "default_method": "source",
+      "install_dir": "/opt/AstrBot",
+      "port": 6185,
+      "repo": "https://github.com/AstrBotDevs/AstrBot.git"
+    },
+    "baota": {
+      "name": "宝塔面板",
+      "description": "Linux 服务器管理面板",
+      "enabled": true,
+      "install_url": "https://download.bt.cn/install/install-ubuntu_6.0.sh",
+      "port": 8888
+    }
+  },
+  "web": {
+    "host": "0.0.0.0",
+    "port": 18080
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NapCat/AstrBot/宝塔面板 一键部署</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 NapCat/AstrBot/宝塔面板 一键部署</h1>
+            <p>一站式快速部署 QQ 机器人和服务器管理面板</p>
+        </header>
+
+        <!-- 选择部署服务 -->
+        <section class="selection-section">
+            <h2>选择需要部署的服务</h2>
+            <div class="service-grid">
+                <div class="service-card" data-service="napcat">
+                    <h3>🐱 NapCatQQ</h3>
+                    <p>基于 NTQQ 的 OneBot 协议实现，QQ 机器人框架</p>
+                    <label>
+                        <input type="checkbox" id="deploy_napcat" checked>
+                        部署 NapCatQQ
+                    </label>
+                    <div class="version-select" id="napcat-options">
+                        <p><strong>版本选择：</strong></p>
+                        <label>
+                            <input type="radio" name="napcat_version" value="original" checked>
+                            官方原版
+                        </label>
+                        <label>
+                            <input type="radio" name="napcat_version" value="fix">
+                            修复版 (Fix)
+                        </label>
+                        <div id="fix-repo-field" style="display: none; margin-top: 10px;">
+                            <label>修复版仓库地址：</label>
+                            <input type="text" id="fix_repo" placeholder="https://github.com/your-username/napcat-fix" value="https://github.com/your-username/napcat-fix">
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <label>QQ 号：</label>
+                            <input type="text" id="qq_number" placeholder="用于 NapCat 登录">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="astrbot">
+                    <h3>🤖 AstrBot</h3>
+                    <p>支持多平台的 LLM 聊天机器人框架</p>
+                    <label>
+                        <input type="checkbox" id="deploy_astrbot" checked>
+                        部署 AstrBot
+                    </label>
+                    <div class="method-select" id="astrbot-options">
+                        <p><strong>部署方式：</strong></p>
+                        <label>
+                            <input type="radio" name="astrbot_method" value="source" checked>
+                            源码部署
+                        </label>
+                        <label>
+                            <input type="radio" name="astrbot_method" value="docker">
+                            Docker 部署
+                        </label>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="baota">
+                    <h3>🖥️ 宝塔面板</h3>
+                    <p>Linux 服务器管理面板</p>
+                    <label>
+                        <input type="checkbox" id="deploy_baota" checked>
+                        部署宝塔面板
+                    </label>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <button id="start-deploy" class="btn primary">🚀 开始部署</button>
+                <button id="refresh-info" class="btn">🔄 刷新信息</button>
+            </div>
+        </section>
+
+        <!-- 实时日志 -->
+        <section class="log-section">
+            <h2>📜 实时部署日志</h2>
+            <div id="log-container" class="log-container"></div>
+        </section>
+
+        <!-- 部署状态 -->
+        <section class="status-section">
+            <h2>📊 部署状态</h2>
+            <div id="status-grid" class="status-grid"></div>
+        </section>
+
+        <!-- 服务信息 -->
+        <section class="info-section">
+            <h2>📋 服务信息</h2>
+            <div id="info-container">
+                <div id="napcat-info" class="info-block" style="display: none;">
+                    <h3>NapCatQQ</h3>
+                    <div class="info-content"></div>
+                    <div class="qr-container">
+                        <h4>登录二维码</h4>
+                        <div id="qrcode-img"></div>
+                    </div>
+                </div>
+
+                <div id="astrbot-info" class="info-block" style="display: none;">
+                    <h3>AstrBot</h3>
+                    <div class="info-content"></div>
+                </div>
+
+                <div id="baota-info" class="info-block" style="display: none;">
+                    <h3>宝塔面板</h3>
+                    <div class="info-content"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
